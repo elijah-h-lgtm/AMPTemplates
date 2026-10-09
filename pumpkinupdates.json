@@ -4,7 +4,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSourceArch": "x86_64",
         "UpdateSource": "FetchURL",
-        "UpdateSourceData": "https://github.com/Pumpkin-MC/Pumpkin/releases/download/nightly/pumpkin-X64-Linux",
+        "UpdateSourceData": "https://github.com/Pumpkin-MC/Pumpkin/releases/{{ReleaseChannel}}/pumpkin-X64-Linux-musl",
         "UpdateSourceTarget": "{{$FullBaseDir}}",
         "UpdateSourceArgs": "pumpkin",
         "SkipOnFailure": false,
@@ -16,7 +16,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSourceArch": "aarch64",
         "UpdateSource": "FetchURL",
-        "UpdateSourceData": "https://github.com/Pumpkin-MC/Pumpkin/releases/download/nightly/pumpkin-ARM64-Linux",
+        "UpdateSourceData": "https://github.com/Pumpkin-MC/Pumpkin/releases/{{ReleaseChannel}}/pumpkin-ARM64-Linux-musl",
         "UpdateSourceTarget": "{{$FullBaseDir}}",
         "UpdateSourceArgs": "pumpkin",
         "SkipOnFailure": false,
@@ -33,8 +33,9 @@
     {
         "UpdateStageName": "Download Server",
         "UpdateSourcePlatform": "Windows",
+        "UpdateSourceArch": "x86_64",
         "UpdateSource": "FetchURL",
-        "UpdateSourceData": "https://github.com/Pumpkin-MC/Pumpkin/releases/download/nightly/pumpkin-X64-Windows.exe",
+        "UpdateSourceData": "https://github.com/Pumpkin-MC/Pumpkin/releases/{{ReleaseChannel}}/pumpkin-X64-Windows.exe",
         "UpdateSourceTarget": "{{$FullBaseDir}}",
         "UpdateSourceArgs": "Pumpkin.exe",
         "SkipOnFailure": false,
@@ -42,13 +43,25 @@
         "DeleteAfterExtract": false
     },
     {
-        "UpdateStageName": "Download Config File",
+        "UpdateStageName": "Download Server",
+        "UpdateSourcePlatform": "Windows",
+        "UpdateSourceArch": "aarch64",
+        "UpdateSource": "FetchURL",
+        "UpdateSourceData": "https://github.com/Pumpkin-MC/Pumpkin/releases/{{ReleaseChannel}}/pumpkin-ARM64-Windows.exe",
+        "UpdateSourceTarget": "{{$FullBaseDir}}",
+        "UpdateSourceArgs": "Pumpkin.exe",
+        "SkipOnFailure": false,
+        "OverwriteExistingFiles": true,
+        "DeleteAfterExtract": false
+    },
+    {
+        "UpdateStageName": "Config Template Download",
         "UpdateSourcePlatform": "All",
         "UpdateSource": "FetchURL",
-        "UpdateSourceData": "https://cdn-repo.c7rs.com/AMPTemplates/pumpkin.toml",
+        "UpdateSourceData": "https://cdn-repo.c7rs.com/AMPTemplates/pumpkintemplate.toml",
         "UpdateSourceTarget": "{{$FullBaseDir}}",
-        "UpdateSourceArgs": "pumpkin.toml",
+        "UpdateSourceArgs": "AMP_pumpkin.toml",
         "SkipOnFailure": false,
-        "OverwriteExistingFiles": false
+        "OverwriteExistingFiles": true
     }
 ]

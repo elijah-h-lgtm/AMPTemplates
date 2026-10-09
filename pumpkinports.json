@@ -4,14 +4,21 @@
         "Port": 25565,
         "Ref": "JavaPort",
         "Name": "Java Edition Port",
-        "Description": "The main port for Java Edition players"
+        "Description": "The port for Java Edition players (TCP). Also used for Query (UDP) when enabled"
     },
     {
-        "Protocol": "UDP",
+        "Protocol": "Both",
         "Port": 19132,
         "Ref": "BedrockPort",
         "Name": "Bedrock Edition Port",
-        "Description": "The port for Bedrock Edition players"
+        "Description": "The port for Bedrock Edition players (UDP and TCP)"
+    },
+    {
+        "Protocol": "UDP",
+        "Port": 19133,
+        "Ref": "BedrockIPv6Port",
+        "Name": "Bedrock Edition IPv6 Port",
+        "Description": "Pumpkin always uses the Bedrock Edition Port + 1 for IPv6 server list pings. Keep this set to the Bedrock Edition Port + 1"
     },
     {
         "Protocol": "TCP",
